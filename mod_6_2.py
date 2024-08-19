@@ -18,9 +18,9 @@ class Vehicle():
 
     def print_info(self):
         print(
-            self.get_model(),
-            self.get_horsepower(),
-            self.get_color(),
+            self.get_model(),'\n',
+            self.get_horsepower(), '\n',
+            self.get_color(), '\n',
             f"Владелец: {self.owner}"
         )
 
