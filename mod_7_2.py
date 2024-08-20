@@ -1,11 +1,12 @@
 def custom_write(file_name: str, strings: list) -> dict[tuple, str]:
 
     strings_positions ={}
-    with open(file_name, 'w', encoding='utf-8') as f:
-        for index, string in enumerate(strings):
-            position = f.tell()
-            f.write(string + 'n')
-            strings_positions[(index + 1, position)] = string
+    f = open(file_name, 'w', encoding='utf-8')
+    for index, string in enumerate(strings):
+        position = f.tell()
+        f.write(string + 'n')
+        strings_positions[(index + 1, position)] = string
+    f.close()
 
     return strings_positions
 
