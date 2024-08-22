@@ -1,3 +1,4 @@
+import unittest
 from unittest import TestCase
 
 
@@ -42,7 +43,39 @@ class Tournament:
         return finishers
 
 
+class RunnerTest(TestCase):
+
+    def setUp(self):
+        self.john = Runner('John')
+        self.garry = Runner('Garry')
+
+    
+    def test_walk(self):
+        for _ in range(1, 11):
+            self.john.walk()
+        self.assertEqual(self.john.distance, 50, "Дистанции не равны")
+
+    
+    def test_run(self):
+        for _ in range(1, 11):
+            self.john.run()
+        self.assertEqual(self.john.distance, 100, "Дистанции не равны")
+
+    
+    def test_who_is_faster(self):
+        for _ in range(1, 11):
+            self.john.walk()
+        for _ in range(1, 11):
+            self.garry.run()
+        self.assertGreater(
+            self.garry.distance,
+            self.john.distance,
+            f"{self.garry} должен преодолеть дистанцию больше, чем {self.john}.")
+
+
 class TournamentTest(TestCase):
+    is_frozen = True
+    reason = "Тесты в этом кейсе заморожены"
     def setUp(self):
         self.runner1 = Runner(name="Усэйн", speed=10)
         self.runner2 = Runner(name="Андрей", speed=9)
@@ -57,6 +90,7 @@ class TournamentTest(TestCase):
         for dct in reversed(cls.all_results.values()):
             print(dct)
 
+    
     def test_runner_1_with_runner_3(self):
         turik = Tournament(90, self.runner1, self.runner3)
         all_results = turik.start()
@@ -64,6 +98,7 @@ class TournamentTest(TestCase):
         self.assertTrue(list(all_results.values())[-1] == self.runner3, msg)
         self.all_results["1"] = all_results
 
+    
     def test_runner_2_with_runner_3(self):
         turik = Tournament(90, self.runner2, self.runner3)
         all_results = turik.start()
@@ -71,6 +106,7 @@ class TournamentTest(TestCase):
         self.assertTrue(list(all_results.values())[-1] == self.runner3, msg)
         self.all_results["2"] = all_results
 
+    
     def test_runner_1_with_runner_2_with_runner_3(self):
         turik = Tournament(90, self.runner1, self.runner2, self.runner3)
         all_results = turik.start()
