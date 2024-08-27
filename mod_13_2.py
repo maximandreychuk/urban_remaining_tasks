@@ -11,7 +11,6 @@ bot = Bot(token=TOKEN_API)
 storage = MemoryStorage()
 dp = Dispatcher(bot=bot, storage=storage)
 
-
 @dp.message(Command('start'))
 async def start(message: Message):
     await message.answer('Привет! Я бот помогающий твоему здоровью.')
