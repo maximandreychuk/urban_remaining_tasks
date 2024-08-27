@@ -1,20 +1,22 @@
+import asyncio
+import logging
+import os
+
 from aiogram import Bot, Dispatcher
 from aiogram.fsm.storage.memory import MemoryStorage
 from aiogram.filters import Command
 from aiogram.types import Message
-import asyncio
-import logging
+from dotenv import load_dotenv
 
 
-TOKEN_API = "7237602520:AAH4wLkTre3iBN7FZ_Q_ADWSO0g0A4rg0Go"
-bot = Bot(token=TOKEN_API)
+load_dotenv()
+bot = Bot(token=os.getenv('TOKEN_API'))
 storage = MemoryStorage()
 dp = Dispatcher(bot=bot, storage=storage)
 
 @dp.message(Command('start'))
 async def start(message: Message):
     await message.answer('Привет! Я бот помогающий твоему здоровью.')
-
 
 @dp.message(Command('all_massages'))
 async def start(message: Message):
