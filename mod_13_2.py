@@ -16,11 +16,13 @@ dp = Dispatcher(bot=bot, storage=storage)
 
 @dp.message(Command('start'))
 async def start(message: Message):
-    await message.answer('Привет! Я бот помогающий твоему здоровью.')
+    print('Привет! Я бот помогающий твоему здоровью.')
+
 
 @dp.message(Command('all_massages'))
 async def start(message: Message):
-    await message.answer('Введите команду /start, чтобы начать общение.')
+    print('Введите команду /start, чтобы начать общение.')
+
 
 
 async def main():
