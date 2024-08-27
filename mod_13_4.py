@@ -53,15 +53,6 @@ async def send_calories(message: Message, state: FSMContext):
     await state.clear()
 
 
-
-
-
-
-
-
-
-
-
 async def main():
     await dp.start_polling(bot)
 
