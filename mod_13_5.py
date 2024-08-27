@@ -5,11 +5,9 @@ import os
 from aiogram import F, Bot, Dispatcher
 from aiogram.fsm.storage.memory import MemoryStorage
 from aiogram.filters import Command
-from aiogram.types import Message, ReplyKeyboardMarkup
+from aiogram.types import Message, KeyboardButton, ReplyKeyboardMarkup
 from aiogram.fsm.context import FSMContext
 from aiogram.fsm.state import StatesGroup, State
-from aiogram.types import ReplyKeyboardMarkup
-from aiogram.types import KeyboardButton
 from dotenv import load_dotenv
 
 
@@ -23,8 +21,6 @@ class UserState(StatesGroup):
     growth = State()
     weight = State()
 
-
-# kb = ReplyKeyboardMarkup([button_1], [button_2], resize_keyboard=True)
 kb = ReplyKeyboardMarkup(keyboard=[
     [KeyboardButton(text='Рассчитать')],
     [KeyboardButton(text='Информация')],
