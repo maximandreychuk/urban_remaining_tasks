@@ -24,6 +24,12 @@ def get_all_products():
 
 def add_values():
     cursor.execute(
-        'INSERT INTO products_table (title, description, price) VALUES("Green", "Tea, Gras", "50")')
+        'INSERT INTO products_table (title, description, price) VALUES("Green", "Tea, Gras", "12")')
+    cursor.execute(
+        'INSERT INTO products_table (title, description, price) VALUES("Red", "Flag, Chili", "48")')
+    cursor.execute(
+        'INSERT INTO products_table (title, description, price) VALUES("Blue", "Horizont, Jeans", "34")')
+    cursor.execute(
+        'INSERT INTO products_table (title, description, price) VALUES("Yellow", "Sun", "5003")')
     conn.commit()
 
