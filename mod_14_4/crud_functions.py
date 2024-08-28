@@ -33,3 +33,7 @@ def add_values():
         'INSERT INTO products_table (title, description, price) VALUES("Yellow", "Sun", "5003")')
     conn.commit()
 
+
+if __name__ == "__main__":
+    initiate_db()
+    add_values()
