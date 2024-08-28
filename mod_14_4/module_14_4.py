@@ -17,10 +17,10 @@ dp = Dispatcher(bot=bot, storage=storage)
 
 @dp.message(Command('start'))
 async def start(message: Message):
-    print('Привет! Я бот помогающий твоему здоровью.')
+    print('Привет! Получить все продукты /get_all_products')
 
 
-@dp.message(Command('all_massages'))
+@dp.message(Command('get_all_products'))
 async def get_buying_list(message: Message):
     for i in get_all_products():
         await message.answer(f"Название: {i[1]} | Описание: {i[2]} | Цена: {i[3]} \n")
